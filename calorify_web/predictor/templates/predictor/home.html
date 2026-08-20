@@ -1,0 +1,40 @@
+{% extends "predictor/base.html" %}
+
+{% block title %}Calorify | Home{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="hero-content">
+        <p class="eyebrow">Multimodal Deep Learning Demo</p>
+        <h1>Food Recognition and Calorie Estimation</h1>
+        <p class="hero-text">
+            Upload a food image, describe the meal, and get a predicted food class,
+            confidence score, top-3 predictions, and estimated calories.
+        </p>
+
+        <div class="hero-actions">
+           <a href="{% url 'predictor:predict' %}" class="primary-button">Start Prediction</a>
+        </div>
+    </div>
+
+    <div class="hero-panel">
+        <div class="floating-card image-card">
+            <span class="card-label">Image Model</span>
+            <strong>EfficientNetB0</strong>
+            <p>Food classification branch</p>
+        </div>
+
+        <div class="floating-card calorie-card">
+            <span class="card-label">Text Model</span>
+            <strong>TF-IDF + Ridge</strong>
+            <p>Estimated calorie regression</p>
+        </div>
+
+        <div class="floating-card result-card">
+            <span class="card-label">Final Output</span>
+            <strong>Food + Calories</strong>
+            <p>End-to-end prediction result</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

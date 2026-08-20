@@ -1,0 +1,101 @@
+{% extends "predictor/base.html" %}
+
+{% block title %}Calorify | Predict{% endblock %}
+
+{% block content %}
+<section class="page-section">
+    <div class="section-header">
+        <p class="eyebrow">Prediction Workspace</p>
+        <h1>Upload Food Image</h1>
+        <p class="hero-text">
+            Add a food image and describe the meal ingredients. Calorify will use
+            the visual model and text calorie model to generate an estimated result.
+        </p>
+    </div>
+
+    {% if errors %}
+        <div class="floating-card static-card">
+            <span class="card-label">Input Error</span>
+            {% for error in errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <div class="predict-grid">
+        <form class="predict-form" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <label class="form-label">Food image</label>
+
+            <label for="food_image" class="upload-box">
+                <div class="upload-icon">+</div>
+                <div>
+                    <strong>Upload food image</strong>
+                    <p>Click to browse JPG, PNG, or WEBP</p>
+                    <span id="file-name">No file selected</span>
+                </div>
+            </label>
+
+            <input
+                type="file"
+                id="food_image"
+                name="food_image"
+                accept="image/*"
+                required
+                hidden
+            >
+
+            <label for="food_description" class="form-label">Food description</label>
+            
+            <div class="description-box">
+                <div class="description-icon">T</div>
+
+                <textarea
+                    id="food_description"
+                    name="food_description"
+                    class="description-input"
+                    rows="5"
+                    placeholder="Describe the food: ingredients, portion size, sauce, cooking method..."
+                    required
+                >{{ food_description }}</textarea>
+            </div>
+
+            <button type="submit" class="primary-button predict-submit">Predict Now</button>
+        </form>
+
+        <div class="info-panel">
+            <div class="floating-card static-card">
+                <span class="card-label">Step 1</span>
+                <strong>Image Model</strong>
+                <p>EfficientNetB0 predicts the food class and confidence score.</p>
+            </div>
+
+            <div class="floating-card static-card">
+                <span class="card-label">Step 2</span>
+                <strong>Text Calorie Model</strong>
+                <p>TF-IDF + Ridge estimates calories from the food description.</p>
+            </div>
+
+            <div class="floating-card static-card">
+                <span class="card-label">Step 3</span>
+                <strong>Final Result</strong>
+                <p>The system returns food class, confidence, top-3 predictions, calories, and warnings.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const imageInput = document.getElementById("food_image");
+    const fileName = document.getElementById("file-name");
+
+    imageInput.addEventListener("change", function () {
+        if (imageInput.files.length > 0) {
+            fileName.textContent = imageInput.files[0].name;
+        } else {
+            fileName.textContent = "No file selected";
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,12 @@
+﻿test_id,actual_class,predicted_food,confidence_percent,estimated_calories,estimated_range,status,notes
+1,burger,burger,83.29,571.55,514-629 kcal,Pass,Correct burger prediction with reasonable calorie estimate.
+2,pasta,pasta,97.29,540.97,487-595 kcal,Pass,Correct pasta prediction with high confidence.
+3,pizza,pizza,99.29,439.97,396-484 kcal,Pass,Correct pizza prediction with very high confidence.
+4,rice,rice,99.98,385.77,347-424 kcal,Pass,Correct rice prediction with almost complete confidence.
+5,fries,fries,97.83,321.38,289-354 kcal,Pass,Correct fries prediction.
+6,chicken,chicken,99.73,482.78,435-531 kcal,Pass,Correct fried chicken prediction.
+7,sandwich,sandwich,99.9,541.89,488-596 kcal,Pass,Correct sandwich prediction.
+8,sushi,sushi,99.38,339.85,306-374 kcal,Pass,Correct sushi prediction.
+9,salad,salad,,,,Pass,Correct salad prediction. Values can be filled from screenshot.
+10,steak,steak,,,,Pass,Correct steak prediction. Values can be filled from screenshot.
+11,mismatch_case,pasta,97.29,339.85,306-374 kcal,Pass,Mismatch warning appeared when pasta image was tested with sushi description.

@@ -1,0 +1,123 @@
+{% extends "predictor/base.html" %}
+
+{% block title %}Calorify | Models Comparison{% endblock %}
+
+{% block content %}
+<section class="page-section">
+    <div class="section-header">
+        <p class="eyebrow">Model Evaluation Evidence</p>
+        <h1>Models Comparison</h1>
+        <p class="hero-text">
+            This page summarizes the main visual classification models and text calorie
+            estimation models used in Calorify. The final demo uses the best-performing
+            image model and the selected calorie estimation model.
+        </p>
+    </div>
+
+    <div class="comparison-summary-grid">
+        {% if best_image_model %}
+        <div class="floating-card static-card">
+            <span class="card-label">Best Image Model</span>
+            <strong>{{ best_image_model.best_visual_model }}</strong>
+            <p>Test accuracy: {{ best_image_model.test_accuracy_percent|floatformat:2 }}%</p>
+            <p>Macro F1: {{ best_image_model.macro_f1_percent|floatformat:2 }}%</p>
+            <p>{{ best_image_model.final_decision }}</p>
+        </div>
+        {% endif %}
+
+        {% if best_text_model %}
+        <div class="floating-card static-card">
+            <span class="card-label">Best Calorie Model</span>
+            <strong>{{ best_text_model.selected_model_name }}</strong>
+            <p>Validation MAE: {{ best_text_model.validation_mae|floatformat:2 }} kcal</p>
+            <p>Validation RMSE: {{ best_text_model.validation_rmse|floatformat:2 }}</p>
+            <p>{{ best_text_model.selection_reason }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="comparison-block">
+        <h2>Phase 1: Image Classification Models</h2>
+        <p class="hero-text">
+            EfficientNetB0 was selected because it achieved the strongest overall test
+            performance among the visual models.
+        </p>
+
+        <div class="table-wrapper">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Model</th>
+                        <th>Type</th>
+                        <th>Test Accuracy</th>
+                        <th>Macro F1</th>
+                        <th>Weighted F1</th>
+                        <th>Correct</th>
+                        <th>Wrong</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for model in image_models %}
+                    <tr>
+                        <td>{{ model.rank }}</td>
+                        <td>{{ model.model_name }}</td>
+                        <td>{{ model.model_type }}</td>
+                        <td>{{ model.test_accuracy_percent|floatformat:2 }}%</td>
+                        <td>{{ model.macro_f1_percent|floatformat:2 }}%</td>
+                        <td>{{ model.weighted_f1_percent|floatformat:2 }}%</td>
+                        <td>{{ model.correct_predictions }}</td>
+                        <td>{{ model.wrong_predictions }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="8">No image model comparison data found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="comparison-block">
+        <h2>Phase 2: Text Calorie Estimation Models</h2>
+        <p class="hero-text">
+            TF-IDF + Ridge was selected for the web demo because it achieved the lowest
+            validation MAE among the calorie estimation experiments.
+        </p>
+
+        <div class="table-wrapper">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Type</th>
+                        <th>Uses Text</th>
+                        <th>Deep Learning</th>
+                        <th>Validation MAE</th>
+                        <th>Validation RMSE</th>
+                        <th>Validation R2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for model in text_models %}
+                    <tr>
+                        <td>{{ model.model_name }}</td>
+                        <td>{{ model.model_type }}</td>
+                        <td>{{ model.uses_text }}</td>
+                        <td>{{ model.deep_learning }}</td>
+                        <td>{{ model.validation_mae|floatformat:2 }}</td>
+                        <td>{{ model.validation_rmse|floatformat:2 }}</td>
+                        <td>{{ model.validation_r2|floatformat:3 }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="7">No text model comparison data found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}

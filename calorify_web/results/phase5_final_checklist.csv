@@ -1,0 +1,21 @@
+﻿section,item,status,evidence
+Final Testing,Create final testing results for all food classes,Completed,final_testing_results.csv
+Final Testing,Test image-text mismatch warning,Completed,Mismatch warning test case included
+Rubric Alignment,Create rubric alignment table,Completed,rubric_alignment_table.csv
+Django Demo,Home page working,Completed,http://127.0.0.1:8000/
+Django Demo,Prediction page working,Completed,http://127.0.0.1:8000/predict/
+Django Demo,"Result page displays image, class, confidence, calories, range, and top-3 predictions",Completed,Result page screenshots
+Django Demo,Models comparison page working,Completed,http://127.0.0.1:8000/models-comparison/
+Django Demo,About page working,Completed,http://127.0.0.1:8000/about/
+Model Evidence,Best image model selected,Completed,EfficientNetB0 selected in Models Comparison page
+Model Evidence,Best calorie model selected,Completed,TF-IDF + Ridge selected in Models Comparison page
+Model Evidence,Visual model comparison available,Completed,"CNN, MobileNetV2, EfficientNetB0, ResNet50, ViT comparison"
+Model Evidence,Text calorie model comparison available,Completed,"TF-IDF + Ridge, Embedding + GAP, BiLSTM, baseline comparison"
+Report Preparation,Problem statement section,Pending,Needs to be written in final report
+Report Preparation,Methodology section,Pending,Needs to be written in final report
+Report Preparation,Results and comparison section,Pending,Use model comparison tables
+Report Preparation,Limitations section,Pending,Use About page limitations
+Presentation,Prepare final presentation slides,Pending,Needs PowerPoint or slide content
+Packaging,Create requirements.txt,Pending,Needed for reproducibility
+Packaging,Create README.md,Pending,Needed for final submission
+Defense Preparation,"Prepare answers for mapping, exact calories, and image-text separation questions",Pending,Needs final defense notes

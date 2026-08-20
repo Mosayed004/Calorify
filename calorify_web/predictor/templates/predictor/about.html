@@ -1,0 +1,121 @@
+{% extends "predictor/base.html" %}
+
+{% block title %}Calorify | About{% endblock %}
+
+{% block content %}
+<section class="page-section">
+    <div class="section-header">
+        <p class="eyebrow">Project Explanation</p>
+        <h1>About Calorify</h1>
+        <p class="hero-text">
+            Calorify is a multimodal food recognition and calorie estimation demo.
+            It combines an image classification model with a text-based calorie estimation model
+            to produce an interpretable food prediction result.
+        </p>
+    </div>
+
+    <div class="comparison-summary-grid">
+        <div class="floating-card static-card">
+            <span class="card-label">Image Branch</span>
+            <strong>EfficientNetB0</strong>
+            <p>
+                The uploaded food image is processed by a transfer learning image model.
+                The model predicts the most likely food class and returns top-3 class probabilities.
+            </p>
+        </div>
+
+        <div class="floating-card static-card">
+            <span class="card-label">Text Branch</span>
+            <strong>TF-IDF + Ridge</strong>
+            <p>
+                The meal description is processed by a trained text regression model.
+                This branch estimates calories based on ingredients and food-related words.
+            </p>
+        </div>
+    </div>
+
+    <div class="comparison-block">
+        <h2>How the Pipeline Works</h2>
+        <div class="table-wrapper">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Step</th>
+                        <th>Component</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Image Upload</td>
+                        <td>The user uploads a food image through the Django web interface.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Image Model</td>
+                        <td>EfficientNetB0 predicts the food class, confidence score, and top-3 predictions.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Text Input</td>
+                        <td>The user describes ingredients, portion, sauce, and preparation style.</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Calorie Model</td>
+                        <td>TF-IDF + Ridge estimates calories from the food description.</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Final Output</td>
+                        <td>The system displays predicted food, confidence, calories, range, and warnings.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="comparison-block">
+        <h2>Important Limitations</h2>
+        <div class="info-panel">
+            <div class="floating-card static-card">
+                <span class="card-label">Estimated, Not Exact</span>
+                <strong>No exact calorie claim</strong>
+                <p>
+                    The system estimates calories from the text description. It does not measure
+                    exact ingredient weight, plate size, or real portion mass from the image.
+                </p>
+            </div>
+
+            <div class="floating-card static-card">
+                <span class="card-label">No Fixed Mapping</span>
+                <strong>Not burger = fixed kcal</strong>
+                <p>
+                    Calorify does not use a fixed food-class-to-calorie lookup. The estimated calories
+                    come from the trained text calorie model.
+                </p>
+            </div>
+
+            <div class="floating-card static-card">
+                <span class="card-label">Image-Text Consistency</span>
+                <strong>Mismatch warning</strong>
+                <p>
+                    If the image prediction and text description appear inconsistent, the system displays
+                    a warning to help the user review the input.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="comparison-block">
+        <h2>Why This Design Was Used</h2>
+        <p class="hero-text">
+            Directly predicting exact calories from an image alone is unreliable because the image does
+            not provide accurate food weight or hidden ingredient quantities. Calorify therefore separates
+            the task into two branches: visual food recognition and text-based calorie estimation.
+            This makes the system more explainable and easier to defend during evaluation.
+        </p>
+    </div>
+</section>
+{% endblock %}
