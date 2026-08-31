@@ -1,0 +1,11 @@
+class_name,total,train,val,test
+burger,500,350,75,75
+chicken,500,350,75,75
+fries,500,350,75,75
+pasta,500,350,75,75
+pizza,500,350,75,75
+rice,430,301,64,65
+salad,500,350,75,75
+sandwich,500,350,75,75
+steak,500,350,75,75
+sushi,446,312,67,67
