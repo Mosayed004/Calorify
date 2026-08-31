@@ -1,0 +1,2 @@
+model_name,validation_mae,validation_rmse,validation_r2,baseline_mae,mae_improvement_over_baseline
+TF-IDF + Ridge Regression,174.94168273061783,224.41954376886815,0.10251480027509885,179.8768935206791,4.935210790061262

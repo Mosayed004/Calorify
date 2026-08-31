@@ -1,0 +1,5 @@
+model_name,model_type,uses_text,deep_learning,validation_mae,validation_rmse,validation_r2,notes
+TF-IDF + Ridge Tuned,Classical ML text regression,True,False,150.19804948034061,191.37666482377404,0.3473446406354038,Best validation model so far; uses recipe text and ingredients through TF-IDF features.
+Embedding + GlobalAveragePooling,Neural text regression,True,True,164.09953770493016,202.44340029413522,0.2696800041431342,Embedding-based neural model; improves over class-average baseline.
+Bidirectional LSTM,Sequence deep learning regression,True,True,168.5139809810754,220.2314300789674,0.13569994037198596,Sequence model using BiLSTM; included to cover sequence modeling.
+Class Average Baseline,Mapping baseline,False,False,179.8768935206791,233.94469001060295,0.024713237680840106,Predicts average calories per food class using train set only.

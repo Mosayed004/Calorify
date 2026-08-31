@@ -1,0 +1,45 @@
+Phase 2 Completion Summary
+===================================
+
+Phase title: Text-Based Calorie Estimation Experiments
+Notebook: Phase2_02_TextCalorieModeling.ipynb
+Completion time: 2026-05-12 20:11:30
+
+Dataset
+--------------------
+Dataset version: cleaned_text_calorie_dataset_v2
+Train records: 310
+Validation records: 66
+Test records: 67
+
+Validation Model Comparison
+------------------------------
+Class Average Baseline MAE: 179.8769
+TF-IDF + Ridge Tuned MAE: 150.1980
+Embedding + GAP MAE: 164.0995
+Bidirectional LSTM MAE: 168.5140
+
+Selected Model
+--------------------
+Selected model: TF-IDF + Ridge Tuned
+Selection basis: Lowest validation MAE
+Validation MAE: 150.1980
+Validation RMSE: 191.3767
+Validation R2: 0.3473
+
+Final Test Evaluation
+-------------------------
+Baseline test MAE: 153.1244
+Selected model test MAE: 147.8753
+Selected model test RMSE: 187.0976
+Selected model test R2: 0.2893
+Test MAE improvement over baseline: 5.2491
+Relative test MAE improvement percent: 3.43%
+
+Final Model File
+--------------------
+/content/drive/MyDrive/Calorify/phase2_text_calorie/models/tfidf_ridge_best_calorie_model.joblib
+
+Important Note
+--------------------
+Calories are estimated from recipe text and ingredients. They are not exact medical-grade measurements.

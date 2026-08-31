@@ -1,0 +1,2 @@
+model_name,validation_mae,validation_rmse,validation_r2,baseline_mae,best_tuned_ridge_mae,embedding_gap_mae,mae_improvement_over_baseline,mae_improvement_over_best_ridge,mae_improvement_over_embedding_gap,vocab_size,sequence_length,calorie_scale
+Bidirectional LSTM Regression,168.5139809810754,220.2314300789674,0.13569994037198596,179.8768935206791,150.19804948034061,164.09953770493016,11.362912539603684,-18.31593150073479,-4.414443276145249,1655,100,1000.0

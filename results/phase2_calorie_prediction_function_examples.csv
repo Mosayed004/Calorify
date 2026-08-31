@@ -1,0 +1,7 @@
+food_class,user_text,model_input_text,predicted_calories,estimated_range_low,estimated_range_high,warning
+burger,double burger with cheddar cheese mayo ketchup and fries,food class: burger recipe name: double burger with cheddar cheese mayo ketchup and fries ingredients: double burger with cheddar cheese mayo ketchup and fries,512.21,435,589,
+salad,green salad with cucumber tomato lettuce and light dressing,food class: salad recipe name: green salad with cucumber tomato lettuce and light dressing ingredients: green salad with cucumber tomato lettuce and light dressing,79.88,68,92,
+pizza,pepperoni pizza with mozzarella tomato sauce and extra cheese,food class: pizza recipe name: pepperoni pizza with mozzarella tomato sauce and extra cheese ingredients: pepperoni pizza with mozzarella tomato sauce and extra cheese,345.65,294,397,
+chicken,grilled chicken breast with rice and salad,food class: chicken recipe name: grilled chicken breast with rice and salad ingredients: grilled chicken breast with rice and salad,148.03,126,170,
+steak,steak with butter sauce fries and black pepper,food class: steak recipe name: steak with butter sauce fries and black pepper ingredients: steak with butter sauce fries and black pepper,296.52,252,341,
+sushi,salmon sushi rolls with rice avocado and soy sauce,food class: sushi recipe name: salmon sushi rolls with rice avocado and soy sauce ingredients: salmon sushi rolls with rice avocado and soy sauce,197.82,168,227,

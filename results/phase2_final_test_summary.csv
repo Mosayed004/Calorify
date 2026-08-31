@@ -1,0 +1,3 @@
+model_name,model_type,test_mae,test_rmse,test_r2,selected_as_final
+Class Average Baseline,Mapping baseline,153.12440528592873,201.7422989378261,0.17370630144303945,False
+TF-IDF + Ridge Tuned,Selected text calorie regression model,147.87527856096102,187.09759922254472,0.2893153432185298,True

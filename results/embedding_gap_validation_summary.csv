@@ -1,0 +1,2 @@
+model_name,validation_mae,validation_rmse,validation_r2,baseline_mae,best_tuned_ridge_mae,mae_improvement_over_baseline,mae_improvement_over_best_ridge,vocab_size,sequence_length,calorie_scale
+Embedding + GlobalAveragePooling Regression,164.09953770493016,202.44340029413522,0.2696800041431342,179.8768935206791,150.19804948034061,15.777355815748933,-13.901488224589542,1655,100,1000.0

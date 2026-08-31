@@ -1,0 +1,2 @@
+selected_model_name,selected_model_type,selection_metric,validation_mae,validation_rmse,validation_r2,baseline_mae,mae_improvement_over_baseline,relative_mae_improvement_percent,selection_reason
+TF-IDF + Ridge Tuned,Classical ML text regression,Lowest validation MAE,150.19804948034061,191.37666482377404,0.3473446406354038,179.8768935206791,29.678844040338475,16.49953112900881,Selected because it achieved the lowest validation MAE among all Phase 2 calorie estimation experiments.

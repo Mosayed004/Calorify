@@ -1,0 +1,2 @@
+selected_model_name,selection_basis,validation_mae,validation_rmse,validation_r2,test_mae,test_rmse,test_r2,baseline_test_mae,test_mae_improvement_over_baseline,test_relative_mae_improvement_percent,final_note
+TF-IDF + Ridge Tuned,Lowest validation MAE,150.19804948034061,191.37666482377404,0.3473446406354038,147.87527856096102,187.09759922254472,0.2893153432185298,153.12440528592873,5.249126724967709,3.428014440393111,"This model estimates calories from recipe text and ingredients, not from fixed class-to-calorie mapping."
