@@ -1,0 +1,13 @@
+[tool.pyrefly]
+project-includes = ["calorify_web/**/*.py"]
+project-excludes = [
+    ".venv/**",
+    "**/__pycache__/**",
+    "dataset/**",
+    "phase1_clean/**",
+    "phase2_text_calorie/**",
+    "phase3_multimodal_integration/**"
+]
+search-path = ["calorify_web"]
+python-version = "3.12"
+python-interpreter-path = ".venv/Scripts/python.exe"
