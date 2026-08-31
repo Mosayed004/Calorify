@@ -1,0 +1,2 @@
+source_site,query,url,reason
+chopstick_chronicles,sushi,https://www.chopstickchronicles.com/sushi/,scrape_failed_or_no_json_ld

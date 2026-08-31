@@ -1,0 +1,5 @@
+food_class,query,url,reason
+fries,potato wedges,https://www.bbcgoodfood.com/recipes/paprika-potato-wedges,missing_required_fields
+sandwich,turkey sandwich,https://www.bbcgoodfood.com/recipes/mary-berrys-christmas-chutney,missing_required_fields
+steak,sirloin steak,https://www.bbcgoodfood.com/recipes/gordons-mix-match-steak,missing_required_fields
+steak,sirloin steak,https://www.bbcgoodfood.com/recipes/stroganoff-steaks,missing_required_fields

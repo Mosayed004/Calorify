@@ -1,0 +1,3 @@
+food_class,query,url,reason
+pizza,pizza recipe,https://www.skinnytaste.com/seasons/spring/,scrape_failed
+steak,steak recipe,https://www.skinnytaste.com/seasons/spring/,scrape_failed
