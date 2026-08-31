@@ -1,0 +1,2 @@
+total_tests,passed_tests,needs_check_tests,pass_rate_percent,average_inference_time_seconds,minimum_estimated_calories,maximum_estimated_calories,warnings_count
+10,8,2,80.0,0.5624,159,654,2

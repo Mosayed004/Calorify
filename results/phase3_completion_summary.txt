@@ -1,0 +1,23 @@
+Phase 3 Completion Summary
+==========================
+
+phase: Phase 3
+phase_title: Multimodal Integration and Inference Pipeline
+image_model: /content/drive/MyDrive/Calorify/phase1_clean/models/efficientnetb0_transfer_learning.keras
+text_model: /content/drive/MyDrive/Calorify/phase2_text_calorie/models/tfidf_ridge_best_calorie_model.joblib
+class_names_file: /content/drive/MyDrive/Calorify/phase1_clean/metadata/class_names.json
+total_integration_tests: 10
+passed_tests: 8
+needs_check_tests: 2
+pass_rate_percent: 80.0
+average_inference_time_seconds: 0.5624
+minimum_estimated_calories: 159
+maximum_estimated_calories: 654
+warnings_count: 2
+integration_results_file: /content/drive/MyDrive/Calorify/phase3_multimodal_integration/results/integration_results.csv
+integration_summary_file: /content/drive/MyDrive/Calorify/phase3_multimodal_integration/results/integration_test_summary.csv
+integration_error_cases_file: /content/drive/MyDrive/Calorify/phase3_multimodal_integration/results/integration_error_cases.csv
+final_pipeline_examples_file: /content/drive/MyDrive/Calorify/phase3_multimodal_integration/results/final_pipeline_examples.csv
+final_pipeline_ready: True
+ready_for_phase4_django: True
+important_note: Calories are estimated from the selected text calorie model, not from a fixed food-class-to-calorie lookup table.

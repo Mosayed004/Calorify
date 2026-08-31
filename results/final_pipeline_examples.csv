@@ -1,0 +1,11 @@
+true_class,predicted_food,confidence_percent,user_text,estimated_calories,estimated_range_low,estimated_range_high,warnings,status
+burger,burger,99.71,double burger with cheddar cheese mayo ketchup and fries,527,474,580,,pass
+pizza,pizza,99.21,pepperoni pizza with mozzarella cheese tomato sauce and extra cheese,366,329,403,,pass
+fries,fries,97.45,crispy fries with ketchup and mayonnaise sauce,503,453,553,,pass
+pasta,steak,92.16,pasta with tomato sauce parmesan cheese and olive oil,577,519,635,The image prediction and text description may not match.,check
+rice,rice,99.81,rice bowl with vegetables chicken and light sauce,225,202,248,,pass
+chicken,chicken,99.25,grilled chicken breast with rice salad and olive oil,336,302,370,,pass
+salad,salad,96.63,green salad with lettuce cucumber tomato chicken and light dressing,159,143,175,,pass
+sandwich,rice,80.2,chicken sandwich with cheese lettuce tomato and mayonnaise,654,589,719,The image prediction and text description may not match.,check
+sushi,sushi,100.0,sushi rolls with salmon rice avocado and soy sauce,240,216,264,,pass
+steak,steak,99.33,grilled steak with butter sauce fries and black pepper,230,207,253,,pass
