@@ -1,0 +1,14 @@
+model_name: Custom CNN From Scratch
+model_type: Baseline CNN
+model_file: /content/drive/MyDrive/Calorify/phase1_clean/models/custom_cnn_from_scratch.keras
+history_file: /content/drive/MyDrive/Calorify/phase1_clean/results/custom_cnn_history.csv
+test_accuracy: 0.505464494228363
+test_loss: 1.5210717916488647
+best_validation_accuracy: 0.485636
+best_validation_loss: 1.55456
+macro_f1_score: 0.494678
+weighted_f1_score: 0.493573
+correct_predictions: 370
+wrong_predictions: 362
+status: Completed
+notes: Custom CNN was used as a baseline model. The model achieved moderate performance and showed limitations on visually similar food classes, motivating the use of pretrained transfer learning models.

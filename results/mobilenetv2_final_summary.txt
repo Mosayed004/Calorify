@@ -1,0 +1,16 @@
+model_name: MobileNetV2 Transfer Learning
+model_type: Pretrained CNN / Transfer Learning
+training_strategy: Frozen MobileNetV2 base + custom classification head
+weights_file: /content/drive/MyDrive/Calorify/phase1_clean/models/mobilenetv2_transfer_learning.weights.h5
+history_file: /content/drive/MyDrive/Calorify/phase1_clean/results/mobilenetv2_history.csv
+test_accuracy: 0.8552
+test_loss: 0.4767
+best_validation_accuracy: 0.856361
+best_validation_loss: 0.51824
+best_epoch: 8
+macro_f1_score: 0.85543
+weighted_f1_score: 0.855841
+correct_predictions: 626
+wrong_predictions: 106
+status: Completed
+notes: MobileNetV2 significantly outperformed the Custom CNN baseline. The model achieved strong test accuracy and high F1-scores across most classes. Remaining errors mainly occurred in visually similar or noisy samples such as steak/chicken, rice/pasta, and sandwich/pizza.

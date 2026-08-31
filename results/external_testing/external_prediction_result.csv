@@ -1,0 +1,2 @@
+image_path,predicted_class,confidence,confidence_percent,top_1,top_1_confidence_percent,top_2,top_2_confidence_percent,top_3,top_3_confidence_percent
+/content/drive/MyDrive/Calorify/phase1_clean/results/external_testing/external_images/caesarbuger9.webp,burger,0.3403222858905792,34.03222858905792,burger,34.032230377197266,salad,16.608057022094727,steak,13.130070686340332

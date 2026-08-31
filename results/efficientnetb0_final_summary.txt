@@ -1,0 +1,17 @@
+model_name: EfficientNetB0 Transfer Learning
+model_type: Pretrained CNN / Transfer Learning
+training_strategy: Frozen EfficientNetB0 base + custom classification head
+weights_file: /content/drive/MyDrive/Calorify/phase1_clean/models/efficientnetb0_transfer_learning.weights.h5
+history_file: /content/drive/MyDrive/Calorify/phase1_clean/results/efficientnetb0_history.csv
+test_accuracy: 0.8934
+test_loss: 0.3992
+best_validation_accuracy: 0.879617
+best_validation_loss: 0.45182
+best_val_loss_epoch: 4
+highest_val_accuracy_epoch: 7
+macro_f1_score: 0.89301
+weighted_f1_score: 0.893274
+correct_predictions: 654
+wrong_predictions: 78
+status: Completed
+notes: EfficientNetB0 achieved the best performance so far among the tested visual models. It outperformed both the Custom CNN baseline and MobileNetV2 transfer learning model. The confusion matrix showed strong diagonal performance across most food classes. Remaining errors mainly occurred in visually similar or noisy samples such as burger/sandwich, rice/pasta, fries/chicken, steak/chicken, and pasta/sushi. The wrong prediction analysis suggests that many errors are caused by dataset ambiguity, mixed dishes, unusual image angles, or label noise rather than complete model failure.

@@ -1,0 +1,9 @@
+file_label,file_path,exists,size_mb
+Model comparison CSV,/content/drive/MyDrive/Calorify/phase1_clean/results/model_comparison/phase1_model_comparison.csv,True,0.0046
+Accuracy comparison plot,/content/drive/MyDrive/Calorify/phase1_clean/results/model_comparison/phase1_test_accuracy_comparison.png,True,0.1582
+Macro F1 comparison plot,/content/drive/MyDrive/Calorify/phase1_clean/results/model_comparison/phase1_macro_f1_comparison.png,True,0.1588
+Best model summary TXT,/content/drive/MyDrive/Calorify/phase1_clean/results/model_comparison/phase1_best_model_summary.txt,True,0.0011
+Best model summary CSV,/content/drive/MyDrive/Calorify/phase1_clean/results/model_comparison/phase1_best_model_summary.csv,True,0.001
+Best model info JSON,/content/drive/MyDrive/Calorify/phase1_clean/models/best_model/best_food_classifier_info.json,True,0.0012
+Best model weights,/content/drive/MyDrive/Calorify/phase1_clean/models/best_model/best_food_classifier.weights.h5,True,19.8519
+Best model class names,/content/drive/MyDrive/Calorify/phase1_clean/models/best_model/class_names.json,True,0.0001

@@ -1,0 +1,22 @@
+Final Summary — Vision Transformer Experiment
+=======================================================
+
+model_name: Vision Transformer
+model_type: Transformer-based Visual Model
+training_strategy: ViT trained from scratch using image patches and transformer encoder blocks
+weights_file: /content/drive/MyDrive/Calorify/phase1_clean/models/vit/vit_best_weights.weights.h5
+model_file: /content/drive/MyDrive/Calorify/phase1_clean/models/vit/vit_best_model.keras
+history_file: /content/drive/MyDrive/Calorify/phase1_clean/results/vit/vit_training_history.csv
+test_accuracy: 0.5737704634666443
+test_loss: 1.612194299697876
+best_validation_accuracy: 0.5116279125213623
+best_validation_accuracy_epoch: 20
+best_validation_loss: 1.7553852796554565
+best_validation_loss_epoch: 20
+macro_f1_score: 0.5668439500018495
+weighted_f1_score: 0.5656592076040655
+correct_predictions: 420
+wrong_predictions: 312
+total_test_samples: 732
+status: Completed
+notes: ViT was included to represent transformer-based visual modeling. The model was trained from scratch, so performance is expected to be lower than pretrained CNN models such as EfficientNetB0, MobileNetV2, and ResNet50.

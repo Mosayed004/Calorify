@@ -1,0 +1,2 @@
+model_name,model_type,training_strategy,test_accuracy,test_loss,best_validation_accuracy,best_validation_accuracy_epoch,best_validation_loss,best_validation_loss_epoch,total_epochs_trained,notes
+Vision Transformer,Transformer-based Visual Model,ViT trained from scratch,0.5737704634666443,1.612194299697876,0.5116279125213623,20,1.7553852796554565,20,20,ViT from scratch included for transformer-based visual model comparison.

@@ -1,0 +1,17 @@
+Phase 1 Best Model Selection Summary
+=============================================
+
+best_visual_model: EfficientNetB0 Transfer Learning
+model_type: Pretrained CNN / Transfer Learning
+selection_reason: ['Highest test accuracy among all Phase 1 models', 'Highest macro F1-score among all Phase 1 models', 'Highest weighted F1-score among all Phase 1 models', 'Lowest number of wrong predictions', 'Best balance between performance and validation stability']
+test_accuracy: 0.8934
+test_accuracy_percent: 89.34
+macro_f1_score: 0.89301
+macro_f1_percent: 89.301
+weighted_f1_score: 0.893274
+weighted_f1_percent: 89.3274
+source_model_file: 
+source_weights_file: /content/drive/MyDrive/Calorify/phase1_clean/models/efficientnetb0_transfer_learning.weights.h5
+source_history_file: /content/drive/MyDrive/Calorify/phase1_clean/results/efficientnetb0_history.csv
+source_summary_file: /content/drive/MyDrive/Calorify/phase1_clean/results/efficientnetb0_final_summary.csv
+final_decision: EfficientNetB0 was selected as the final visual food classifier for the Calorify pipeline because it achieved the best overall test accuracy and F1 performance across all Phase 1 experiments.

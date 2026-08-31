@@ -1,0 +1,20 @@
+
+Final Summary — Custom CNN Baseline
+
+In this notebook, the Phase 1 image dataset was prepared and evaluated for the food image classification task. The raw scraped image dataset was cleaned, invalid images were removed, and the remaining valid images were organized into train, validation, and test splits.
+
+A balanced sampling strategy was applied by limiting overrepresented classes to a maximum of 500 images per class. The final split was loaded using TensorFlow with image size 224×224 and batch size 32. Class weights were also calculated to reduce the effect of class imbalance, especially for smaller classes such as rice and sushi.
+
+A Custom CNN model was then trained from scratch as the baseline model for Phase 1. The model used convolutional layers, batch normalization, max pooling, global average pooling, dropout, and a softmax classification output for the 10 food classes.
+
+The Custom CNN achieved:
+- Test Accuracy: 50.55%
+- Test Loss: 1.5211
+- Macro F1-score: 49.47%
+- Weighted F1-score: 49.36%
+
+The model performed relatively better on classes such as salad, fries, sushi, and burger. However, it struggled with visually similar or noisy classes such as sandwich, pasta, chicken, and steak.
+
+The confusion matrix and wrong prediction samples showed that many errors were caused by visually ambiguous images, mixed dishes, low-quality scraped images, watermarks, unusual cropping, and overlapping food patterns. Common confusion cases included burger vs sandwich, chicken vs steak, rice vs salad, and pizza vs chicken/steak.
+
+Overall, the Custom CNN achieved a useful baseline result. However, its limitations show that training a CNN from scratch is not enough for this noisy scraped food dataset. Therefore, pretrained transfer learning models such as MobileNetV2, EfficientNetB0, ResNet50, and Vision Transformer will be tested next to improve visual feature extraction and classification performance.

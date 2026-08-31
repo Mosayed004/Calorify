@@ -1,0 +1,263 @@
+Model: "ViT_Strong_Regularized_Food_Classifier"
+┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┓
+┃ Layer (type)        ┃ Output Shape      ┃    Param # ┃ Connected to      ┃
+┡━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━┩
+│ input_image         │ (None, 224, 224,  │          0 │ -                 │
+│ (InputLayer)        │ 3)                │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ vit_data_augmentat… │ (None, 224, 224,  │          0 │ input_image[0][0] │
+│ (Sequential)        │ 3)                │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ vit_rescaling       │ (None, 224, 224,  │          0 │ vit_data_augment… │
+│ (Rescaling)         │ 3)                │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ patch_extraction    │ (None, None, 768) │          0 │ vit_rescaling[0]… │
+│ (Patches)           │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ patch_encoder       │ (None, 196, 128)  │    123,520 │ patch_extraction… │
+│ (PatchEncoder)      │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │        256 │ patch_encoder[0]… │
+│ (LayerNormalizatio… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │     66,048 │ transformer_bloc… │
+│ (MultiHeadAttentio… │                   │            │ transformer_bloc… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │          0 │ transformer_bloc… │
+│ (Add)               │                   │            │ patch_encoder[0]… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │        256 │ transformer_bloc… │
+│ (LayerNormalizatio… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 256)  │     33,024 │ transformer_bloc… │
+│ (Dense)             │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 256)  │          0 │ transformer_bloc… │
+│ (Dropout)           │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │     32,896 │ transformer_bloc… │
+│ (Dense)             │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │          0 │ transformer_bloc… │
+│ (Dropout)           │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │          0 │ transformer_bloc… │
+│ (Add)               │                   │            │ transformer_bloc… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │        256 │ transformer_bloc… │
+│ (LayerNormalizatio… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │     66,048 │ transformer_bloc… │
+│ (MultiHeadAttentio… │                   │            │ transformer_bloc… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │          0 │ transformer_bloc… │
+│ (Add)               │                   │            │ transformer_bloc… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │        256 │ transformer_bloc… │
+│ (LayerNormalizatio… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 256)  │     33,024 │ transformer_bloc… │
+│ (Dense)             │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 256)  │          0 │ transformer_bloc… │
+│ (Dropout)           │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │     32,896 │ transformer_bloc… │
+│ (Dense)             │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │          0 │ transformer_bloc… │
+│ (Dropout)           │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │          0 │ transformer_bloc… │
+│ (Add)               │                   │            │ transformer_bloc… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │        256 │ transformer_bloc… │
+│ (LayerNormalizatio… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │     66,048 │ transformer_bloc… │
+│ (MultiHeadAttentio… │                   │            │ transformer_bloc… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │          0 │ transformer_bloc… │
+│ (Add)               │                   │            │ transformer_bloc… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │        256 │ transformer_bloc… │
+│ (LayerNormalizatio… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 256)  │     33,024 │ transformer_bloc… │
+│ (Dense)             │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 256)  │          0 │ transformer_bloc… │
+│ (Dropout)           │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │     32,896 │ transformer_bloc… │
+│ (Dense)             │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │          0 │ transformer_bloc… │
+│ (Dropout)           │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │          0 │ transformer_bloc… │
+│ (Add)               │                   │            │ transformer_bloc… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │        256 │ transformer_bloc… │
+│ (LayerNormalizatio… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │     66,048 │ transformer_bloc… │
+│ (MultiHeadAttentio… │                   │            │ transformer_bloc… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │          0 │ transformer_bloc… │
+│ (Add)               │                   │            │ transformer_bloc… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │        256 │ transformer_bloc… │
+│ (LayerNormalizatio… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 256)  │     33,024 │ transformer_bloc… │
+│ (Dense)             │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 256)  │          0 │ transformer_bloc… │
+│ (Dropout)           │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │     32,896 │ transformer_bloc… │
+│ (Dense)             │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │          0 │ transformer_bloc… │
+│ (Dropout)           │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │          0 │ transformer_bloc… │
+│ (Add)               │                   │            │ transformer_bloc… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │        256 │ transformer_bloc… │
+│ (LayerNormalizatio… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │     66,048 │ transformer_bloc… │
+│ (MultiHeadAttentio… │                   │            │ transformer_bloc… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │          0 │ transformer_bloc… │
+│ (Add)               │                   │            │ transformer_bloc… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │        256 │ transformer_bloc… │
+│ (LayerNormalizatio… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 256)  │     33,024 │ transformer_bloc… │
+│ (Dense)             │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 256)  │          0 │ transformer_bloc… │
+│ (Dropout)           │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │     32,896 │ transformer_bloc… │
+│ (Dense)             │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │          0 │ transformer_bloc… │
+│ (Dropout)           │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │          0 │ transformer_bloc… │
+│ (Add)               │                   │            │ transformer_bloc… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │        256 │ transformer_bloc… │
+│ (LayerNormalizatio… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │     66,048 │ transformer_bloc… │
+│ (MultiHeadAttentio… │                   │            │ transformer_bloc… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │          0 │ transformer_bloc… │
+│ (Add)               │                   │            │ transformer_bloc… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │        256 │ transformer_bloc… │
+│ (LayerNormalizatio… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 256)  │     33,024 │ transformer_bloc… │
+│ (Dense)             │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 256)  │          0 │ transformer_bloc… │
+│ (Dropout)           │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │     32,896 │ transformer_bloc… │
+│ (Dense)             │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │          0 │ transformer_bloc… │
+│ (Dropout)           │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │          0 │ transformer_bloc… │
+│ (Add)               │                   │            │ transformer_bloc… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │        256 │ transformer_bloc… │
+│ (LayerNormalizatio… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │     66,048 │ transformer_bloc… │
+│ (MultiHeadAttentio… │                   │            │ transformer_bloc… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │          0 │ transformer_bloc… │
+│ (Add)               │                   │            │ transformer_bloc… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │        256 │ transformer_bloc… │
+│ (LayerNormalizatio… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 256)  │     33,024 │ transformer_bloc… │
+│ (Dense)             │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 256)  │          0 │ transformer_bloc… │
+│ (Dropout)           │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │     32,896 │ transformer_bloc… │
+│ (Dense)             │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │          0 │ transformer_bloc… │
+│ (Dropout)           │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │          0 │ transformer_bloc… │
+│ (Add)               │                   │            │ transformer_bloc… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │        256 │ transformer_bloc… │
+│ (LayerNormalizatio… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │     66,048 │ transformer_bloc… │
+│ (MultiHeadAttentio… │                   │            │ transformer_bloc… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │          0 │ transformer_bloc… │
+│ (Add)               │                   │            │ transformer_bloc… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │        256 │ transformer_bloc… │
+│ (LayerNormalizatio… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 256)  │     33,024 │ transformer_bloc… │
+│ (Dense)             │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 256)  │          0 │ transformer_bloc… │
+│ (Dropout)           │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │     32,896 │ transformer_bloc… │
+│ (Dense)             │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │          0 │ transformer_bloc… │
+│ (Dropout)           │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ transformer_block_… │ (None, 196, 128)  │          0 │ transformer_bloc… │
+│ (Add)               │                   │            │ transformer_bloc… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ final_layer_norm    │ (None, 196, 128)  │        256 │ transformer_bloc… │
+│ (LayerNormalizatio… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ global_average_poo… │ (None, 128)       │          0 │ final_layer_norm… │
+│ (GlobalAveragePool… │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ pre_head_dropout    │ (None, 128)       │          0 │ global_average_p… │
+│ (Dropout)           │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ classification_hea… │ (None, 256)       │     33,024 │ pre_head_dropout… │
+│ (Dense)             │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ classification_hea… │ (None, 256)       │          0 │ classification_h… │
+│ (Dropout)           │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ classification_hea… │ (None, 128)       │     32,896 │ classification_h… │
+│ (Dense)             │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ classification_hea… │ (None, 128)       │          0 │ classification_h… │
+│ (Dropout)           │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ food_class_output   │ (None, 10)        │      1,290 │ classification_h… │
+│ (Dense)             │                   │            │                   │
+└─────────────────────┴───────────────────┴────────────┴───────────────────┘
+ Total params: 1,250,826 (4.77 MB)
+ Trainable params: 1,250,826 (4.77 MB)
+ Non-trainable params: 0 (0.00 B)
+
